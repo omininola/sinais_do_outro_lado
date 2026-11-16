@@ -1,0 +1,9 @@
+node_modules/
+package-lock.json
+
+go.mod
+go.sum
+
+views/*.go
+
+static/css/output.css
