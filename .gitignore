@@ -7,3 +7,5 @@ go.sum
 views/*.go
 
 static/css/output.css
+
+plans.md

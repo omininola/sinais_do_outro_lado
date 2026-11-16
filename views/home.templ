@@ -1,26 +1,21 @@
 package components
 
 templ HomePage() {
-  <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link href="../static/css/output.css" rel="stylesheet"/>
-    <script src="https://unpkg.com"></script>
-    </head>
-    <body>
-
-    <!-- frase escolhida aleatóriamente -->
-    @Phrase("abóbrinha")
-
-    <!-- botão para rerolar a frase -->
-    <button>Reroll Frase</button>
-
-
-    <!-- link para o alfabeto -->
-    @Link("./alphabet.templ", "Alfabeto")
-
-    </body>
-    </html>
+	<!DOCTYPE html>
+	<html lang="pt-BR">
+		<head>
+			<meta charset="UTF-8"/>
+			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+			<link href="../static/css/output.css" rel="stylesheet"/>
+			<script src="https://unpkg.com"></script>
+		</head>
+		<body>
+			<!-- frase escolhida aleatóriamente -->
+			@Phrase()
+			<!-- botão para rerolar a frase -->
+			<button>Reroll Frase</button>
+			<!-- link para o alfabeto -->
+			@Link("/alphabet", "Alfabeto")
+		</body>
+	</html>
 }
