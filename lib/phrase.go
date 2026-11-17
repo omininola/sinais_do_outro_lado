@@ -1,4 +1,4 @@
-package components
+package lib
 
 import (
 	"encoding/json"
@@ -7,7 +7,7 @@ import (
 	"os"
 )
 
-func readData() []string {
+func ReadData() []string {
 	data, err := os.ReadFile("data/bomdia.json")
 	if err != nil {
 		fmt.Printf("Unable to read file\n")
@@ -23,18 +23,10 @@ func readData() []string {
 	return phrases
 }
 
-func getRandomPhrase() string {
-	phrases := readData()
+func GetRandomPhrase() string {
+	phrases := ReadData()
 	if phrases == nil {
 		return "Não foi possível encontrar dados :c"
 	}
-
-	choosen := rand.IntN(len(phrases))
-	phrase := phrases[choosen]
-	return phrase
-}
-
-// adicionar efeito de digitação, uma letra por vez tem que aparecer
-templ Phrase() {
-	<p class="font-sinais">{ getRandomPhrase() }</p>
+	return phrases[rand.IntN(len(phrases))]
 }

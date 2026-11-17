@@ -1,0 +1,30 @@
+package components
+
+templ Sinal(char string) {
+	<li class="w-44 h-44 flex flex-col justify-center items-center gap-4 text-center border border-foreground p-4">
+		<span class="border-b border-b-text text-2xl w-full">{ char }</span>
+		<span class="font-display text-6xl p-4">{ char }</span>
+	</li>
+}
+
+templ SinaisArr(sinais []string) {
+	@SinaisList() {
+		for _, sinal := range sinais {
+			@Sinal(sinal)
+		}
+	}
+}
+
+templ SinaisRange(start int, finish int) {
+	@SinaisList() {
+		for i := start; i <= finish; i++ {
+			@Sinal(string(rune(i)))
+		}
+	}
+}
+
+templ SinaisList() {
+	<ul class="flex flex-wrap gap-4">
+		{ children... }
+	</ul>
+}

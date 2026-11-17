@@ -1,21 +1,19 @@
-package components
+package views
+
+import (
+	"sinais/components"
+	"sinais/layout"
+	"sinais/lib"
+)
 
 templ HomePage() {
-	<!DOCTYPE html>
-	<html lang="pt-BR">
-		<head>
-			<meta charset="UTF-8"/>
-			<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-			<link href="../static/css/output.css" rel="stylesheet"/>
-			<script src="https://unpkg.com"></script>
-		</head>
-		<body>
-			<!-- frase escolhida aleatóriamente -->
-			@Phrase()
-			<!-- botão para rerolar a frase -->
-			<button>Reroll Frase</button>
-			<!-- link para o alfabeto -->
-			@Link("/alphabet", "Alfabeto")
-		</body>
-	</html>
+	@layout.Layout("Sinais") {
+		@components.Header("Frase Aleatória", "/alphabet", "Alfabeto")
+		@components.Card() {
+			@components.Phrase(lib.GetRandomPhrase(), templ.Attributes{"id": "phrase"})
+			@components.CardFooter() {
+				@components.Button("Outra Frase", templ.Attributes{"hx-get": "/getRandomPhrase", "hx-target": "#phrase", "hx-swap": "textContent"})
+			}
+		}
+	}
 }

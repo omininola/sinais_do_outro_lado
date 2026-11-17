@@ -5,7 +5,9 @@ go.mod
 go.sum
 
 views/*.go
+layout/*.go
+components/*.go
 
-static/css/output.css
+*/**/output.css
 
-plans.md
+TODO.md
