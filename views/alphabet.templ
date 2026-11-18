@@ -9,17 +9,15 @@ import (
 templ AlphabetPage() {
 	@layout.Layout("Sinais - Alfabeto") {
 		@components.Header("Alfabeto", "/", "Home")
-		<div class="my-8">
-			<h2 class="text-4xl">Símbolos</h2>
-			@components.SinaisArr(lib.GetSymbolsArr("Sinais"))
-		</div>
-		<div class="my-8">
-			<h2 class="text-4xl">Números</h2>
-			@components.SinaisRange(lib.NumbersRangeStart, lib.NumbersRangeFinish)
-		</div>
-		<div class="my-8">
-			<h2 class="text-4xl">Letras</h2>
-			@components.SinaisRange(lib.LettersRangeStart, lib.LettersRangeFinish)
-		</div>
+		@AlphabetDivision("Símbolos", components.SinaisArr([]string{"@"}))
+		@AlphabetDivision("Números", components.SinaisRange(lib.NumbersRangeStart, lib.NumbersRangeFinish))
+		@AlphabetDivision("Letras", components.SinaisRange(lib.LettersRangeStart, lib.LettersRangeFinish))
 	}
+}
+
+templ AlphabetDivision(title string, sinais templ.Component) {
+	<div class="my-8">
+		<h2 class="text-2xl">{ title }</h2>
+		@sinais
+	</div>
 }
