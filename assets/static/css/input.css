@@ -19,11 +19,19 @@
   --accent: #76ff03;
 }
 
+[data-theme="sinais"] .theme-sigilos-only {
+  display: none;
+}
+
 [data-theme="sigilos"] {
   --theme-font-display: "Sigilos";
   --foreground: #ff1e1e;
   --background: #3a0404;
   --accent: #b80f0a;
+}
+
+[data-theme="sigilos"] .theme-sinais-only {
+  display: none;
 }
 
 @theme {

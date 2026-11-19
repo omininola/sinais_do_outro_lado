@@ -9,15 +9,22 @@ import (
 templ AlphabetPage() {
 	@layout.Layout("Sinais - Alfabeto") {
 		@components.Header("Alfabeto", "/", "Home")
-		@AlphabetDivision("Símbolos", components.SinaisArr([]string{"@"}))
-		@AlphabetDivision("Números", components.SinaisRange(lib.NumbersRangeStart, lib.NumbersRangeFinish))
-		@AlphabetDivision("Letras", components.SinaisRange(lib.LettersRangeStart, lib.LettersRangeFinish))
+		@AlphabetDivision("Símbolos", true, components.SinaisArr([]string{"#", "$", "&", "*", "+", "-", "=", "?"}))
+		@AlphabetDivision("Números", true, components.SinaisRange(lib.NumbersRangeStart, lib.NumbersRangeFinish))
+		@AlphabetDivision("Letras", false, components.SinaisRange(lib.LettersRangeStart, lib.LettersRangeFinish))
 	}
 }
 
-templ AlphabetDivision(title string, sinais templ.Component) {
-	<div class="my-8">
-		<h2 class="text-2xl">{ title }</h2>
-		@sinais
-	</div>
+templ AlphabetDivision(title string, sinaisOnly bool, sinais templ.Component) {
+	if sinaisOnly {
+		<div class="theme-sinais-only my-8">
+			<h2 class="text-2xl">{ title }</h2>
+			@sinais
+		</div>
+	} else {
+		<div class="my-8">
+			<h2 class="text-2xl">{ title }</h2>
+			@sinais
+		</div>
+	}
 }

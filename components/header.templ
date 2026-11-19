@@ -2,7 +2,11 @@ package components
 
 templ Header(title string, linkHref string, linkText string) {
 	<header class="flex justify-between items-center">
-		<h1 class="text-4xl font-bold">{ title }</h1>
+		<div class="flex justify-between items-center gap-4">
+			<img class="theme-sigilos-only w-16 h-16" src="/assets/static/images/desconjuracao.webp"/>
+			<img class="theme-sinais-only w-16 h-16" src="/assets/static/images/os_cinco.webp"/>
+			<h1 class="text-4xl font-bold">{ title }</h1>
+		</div>
 		<div class="flex justify-between items-center gap-4">
 			<select id="themeSelect" class="text-2xl">
 				<option value="sinais" selected>Sinais</option>

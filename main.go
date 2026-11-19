@@ -20,7 +20,6 @@ func main() {
 	mux.Handle("GET /", templ.Handler(views.HomePage()))
 	mux.Handle("GET /alphabet", templ.Handler(views.AlphabetPage()))
 
-	// htxm: views/home.templ button for changing phrase
 	mux.HandleFunc("GET /getRandomPhrase", func(w http.ResponseWriter, r *http.Request) {
 		templ.Raw(lib.GetRandomPhrase()).Render(r.Context(), w)
 	})
